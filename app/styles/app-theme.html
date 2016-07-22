@@ -28,12 +28,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   :root {
     --primary-text-color: var(--paper-grey-900);
     --primary-background-color: #ffffff;
-    --secondary-text-color: #737373;
+    --secondary-text-color: #fff;
     --disabled-text-color: #9b9b9b;
     --divider-color: #dbdbdb;
-    --primary-color: var(--paper-indigo-500);
-    --light-primary-color: var(--paper-indigo-100);
-    --dark-primary-color: var(--paper-indigo-700);
+    --primary-color: var(--paper-brown-500);
+    --light-primary-color: var(--paper-brown-100);
+    --dark-primary-color: var(--paper-brown-700);
     --accent-color: var(--paper-pink-a200);
     --light-accent-color: var(--paper-pink-a100);
     --dark-accent-color: var(--paper-pink-a400);
@@ -41,13 +41,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     /* Components */
 
     /* paper-drawer-panel */
-    --drawer-menu-color: #ffffff;
-    --drawer-border-color: 1px solid #ccc;
-    --drawer-toolbar-border-color: 1px solid rgba(0, 0, 0, 0.22);
+    --drawer-menu-color: #795548;
 
     /* paper-menu */
     --paper-menu-background-color: #fff;
-    --menu-link-color: #111111;
+    --menu-link-color: #000;
   }
 
   /* General styles */
@@ -77,7 +75,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   paper-menu {
     --paper-menu-selected-item: {
-      color: var(--primary-color);
+      color: var(--secondary-color);
     }
 
     --paper-menu-focused-item-after: {
@@ -141,7 +139,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   /* Height of the scroll area */
   .content {
-    height: 900px;
+    min-height: 900px;
   }
 
   section[data-route="home"] paper-material {
