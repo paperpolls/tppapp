@@ -58,6 +58,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <!-- For shared styles, shared-styles.html import in elements.html -->
   <style is="custom-style" include="shared-styles"></style>
 
+
 </head>
 
 <body unresolved>
@@ -128,16 +129,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <section data-route="home" tabindex="-1">
               <paper-material elevation="1">
                 <my-greeting></my-greeting>
-
+                <img id="in" src="http://i.giphy.com/IBMavwmu4KEEw.gif">
                 <p class="subhead">On this website you can:</p>
                 <my-list></my-list>
 
                 <p>Looking for Pokemon Go? Here is the link <a href="https://www.youtube.com/watch?v=oHg5SJYRHA0">right here</a>!</p>
 
               </paper-material>
-              <div class="card">
+              <paper-material elevation="2">
                       © 2016 Toilet Paper Polls
-              </div>
+              </paper-material >
 
 
             </section>
@@ -145,23 +146,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <section data-route="users" tabindex="-1">
 
               <paper-material elevation="1">
-                <paper-material elevation="2" class="can" id="t">
 
-                </paper-material>
-                <paper-material elevation="2" class="can" id="">
+                <paper-tabs selected="0" autoselect autoselect-delay="1000" noink>
+                  <paper-tab disabled>Instructions</paper-tab>
+                  <paper-tab><a href$="{{baseUrl}}users/Trump">Donald Trump</a><br></paper-tab>
+                  <paper-tab><a href$="{{baseUrl}}users/Clinton">Clinton</a><br></paper-tab>
+                </paper-tabs>
 
-                </paper-material>
-
-                <h1 class="page-title" tabindex="-1">Users</h1>
-                <p>This is the users section</p>
-                <a href$="{{baseUrl}}users/Addy">Addy</a><br>
-                <a href$="{{baseUrl}}users/Rob">Rob</a><br>
-                <a href$="{{baseUrl}}users/Chuck">Chuck</a><br>
-                <a href$="{{baseUrl}}users/Sam">Sam</a>
+                <h1 class="page-title" tabindex="-1">Instructions</h1>
+                <p>Select your candidate's tab and click 'Vote' on their page.</p>
+                <img id="in" src="http://i.imgur.com/x9p8NAh.gif">
               </paper-material>
-              <div class="card">
+
+              <paper-material elevation="2">
                       © 2016 Toilet Paper Polls
-              </div>
+              </paper-material>
             </section>
 
             <section data-route="user-info" tabindex="-1">
@@ -169,24 +168,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <h1 class="page-title" tabindex="-1">User: {{params.name}}</h1>
                 <div>This is {{params.name}}'s section</div>
               </paper-material>
-              <div class="card">
+
+              <paper-material elevation="2">
                       © 2016 Toilet Paper Polls
-              </div>
+              </paper-material >
             </section>
 
             <section data-route="contact" tabindex="-1">
               <paper-material elevation="1">
                 <h1 class="page-title" tabindex="-1">Results</h1>
                 <p>Coming Soon. We are gathering the results.</p>
+                <img id="in" src="http://i.giphy.com/l46Cmwy8HWPsMcmw8.gif">
               </paper-material>
-              <div class="card">
+              <paper-material elevation="2">
                       © 2016 Toilet Paper Polls
-              </div>
+              </paper-material >
             </section>
           </iron-pages>
-          <div  class="card" id="end">
+          <paper-material elevation="2" animated="true" id="end">
             <img id="taf" src="http://fntlnz.github.io/php-and-solr/slides/img/thats-all-folks.png"; />
-          </div>
+          </paper-material >
         </div>
       </paper-scroll-header-panel>
     </paper-drawer-panel>
