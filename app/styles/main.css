@@ -17,7 +17,7 @@ body {
   outline: none;
 }
 
-img {
+#logo {
   height: 40px;
   width: auto;
   padding-right: 10px;
@@ -31,4 +31,29 @@ img {
   width: 185px;
   background-color: #fff;
   color: #000;
+}
+
+#end {
+  position: relative;
+  top: 600px;
+  float: right;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+  z-index: 2;
+}
+
+#taf {
+  position: inherit;
+  left: calc(50% - 40px);
+  height: 100%;
+  width: auto ;
+  align-items: center;
+  border-radius: 100px;
+}
+
+.can {
+  float:left;
+  display: inline;
+  width: 200px;
 }

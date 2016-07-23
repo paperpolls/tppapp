@@ -57,6 +57,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <!-- For shared styles, shared-styles.html import in elements.html -->
   <style is="custom-style" include="shared-styles"></style>
+
 </head>
 
 <body unresolved>
@@ -72,7 +73,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <!-- Drawer Toolbar -->
         <paper-toolbar id="drawerToolbar">
-          <img src="https://avatars0.githubusercontent.com/u/20588209?v=3&s=200"><span class="menu-name">Toilet Paper Polls</span>
+          <img id="logo" src="https://avatars0.githubusercontent.com/u/20588209?v=3&s=200"><span class="menu-name">Toilet Paper Polls</span>
         </paper-toolbar>
 
         <!-- Drawer Content -->
@@ -138,10 +139,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                       © 2016 Toilet Paper Polls
               </div>
 
+
             </section>
 
             <section data-route="users" tabindex="-1">
+
               <paper-material elevation="1">
+                <paper-material elevation="2" class="can" id="t">
+
+                </paper-material>
+                <paper-material elevation="2" class="can" id="">
+
+                </paper-material>
+
                 <h1 class="page-title" tabindex="-1">Users</h1>
                 <p>This is the users section</p>
                 <a href$="{{baseUrl}}users/Addy">Addy</a><br>
@@ -173,8 +183,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                       © 2016 Toilet Paper Polls
               </div>
             </section>
-
           </iron-pages>
+          <div  class="card" id="end">
+            <img id="taf" src="http://fntlnz.github.io/php-and-solr/slides/img/thats-all-folks.png"; />
+          </div>
         </div>
       </paper-scroll-header-panel>
     </paper-drawer-panel>
@@ -200,6 +212,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </platinum-sw-cache>
     </platinum-sw-register>
     -->
+
 
   </template>
 
