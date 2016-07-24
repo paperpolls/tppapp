@@ -1,0 +1,399 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="https://raw.githubusercontent.com/rupl/flip-card/master/flip-card.html">
+<link href="https://raw.githubusercontent.com/PolymerElements/paper-icon-button/master/paper-icon-button.html" rel="import">
+
+<dom-module id="my-trump">
+
+  <template>
+
+    <style>
+      :host {
+        display: block;
+        padding: 10px;
+      }
+
+      .card {
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+        padding: 24px;
+        padding-bottom: 34px;
+        margin: 24px;
+        border-radius: 5px;
+        background-color: #fff;
+        color: #757575;
+        padding-left: 0px;
+      }
+
+      .circle {
+        display: inline-block;
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        background: #B03734;
+        line-height: 60px;
+        font-size: 30px;
+        right: 16px;
+        position: absolute;
+        color: #fff;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 22px;
+        margin: 16px 0;
+        color: #B03734;
+      }
+
+      flip-card {
+        width: calc(100% - 54px);
+        padding: 24px;
+        height: 200px;
+        color: #fff;
+        text-shadow: -1px -1px rgba(0, 0, 0, 0.4);
+        border-radius: 5px;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+        padding: 16px;
+        margin: 24px;
+        border-radius: 5px;
+        text-shadow: none;
+      }
+
+      flip-card front {
+        padding: 24px;
+        background: #fff;
+        color: black;
+        padding-top: 1em;
+        border-radius: 5px;
+      }
+
+      flip-card back {
+        padding: 24px;
+        background: #B03734;
+        color: black;
+        padding-top: 1em;
+        border-radius: 5px;
+      }
+
+      @import url(http://fonts.googleapis.com/css?family=Roboto:400);
+      html {
+        height: 100%;
+        width: 100%;
+        font-family: 'Roboto', sans-serif;
+      }
+
+      body {
+        background-size: cover;
+        text-align: center;
+      }
+
+      img {
+        position: relative;
+        -webkit-user-select: none;
+        display: block;
+        margin: auto;
+        width: inherit;
+        height: inherit;
+        opacity: .60;
+      }
+
+      .paper img {
+        height: 85%;
+        width: 85%;
+      }
+
+      .wrapper {
+        position: inherit;
+        margin: auto;
+        padding: 40px;
+        width: 340px;
+        max-width: 90%;
+        height: 420px;
+        max-height: 90%;
+      }
+
+      .toiletroll {
+        position: relative;
+        width: 300px;
+        height: 240px;
+      }
+
+      .roll {
+        background: #FFCDD2 url("https://raw.githubusercontent.com/the872/tvc2016/gh-pages/crissxcross.png");
+        background-size: cover;
+        position: absolute;
+        z-index: 2;
+        width: 300px;
+        height: 240px;
+        border-radius: 15% 0% 0% 15% / 50% 0% 0% 50%;
+        box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), inset 0 5px 10px rgba(0, 0, 0, 0.3);
+        /* W3C */
+        background-size: 300px 240px;
+        -webkit-animation: move-roll 1.06667s linear infinite;
+        animation: move-roll 1.06667s linear infinite;
+      }
+
+      .roll:before {
+        background: #FFCDD2;
+        background-image: -webkit-radial-gradient(center ellipse, #FFCDD2 0%, #FFCDD2 4%, #bbbbbb 5%, #FFCDD2 6%, #FFCDD2 9%, #bbbbbb 10%, #FFCDD2 11%, #FFCDD2 14%, #bbbbbb 15%, #FFCDD2 16%, #FFCDD2 19%, #bbbbbb 20%, #FFCDD2 21%, #FFCDD2 24%, #bbbbbb 25%, #FFCDD2 26%, #FFCDD2 29%, #bbbbbb 30%, #FFCDD2 31%, #FFCDD2 34%, #bbbbbb 35%, #FFCDD2 36%, #FFCDD2 39%, #bbbbbb 40%, #FFCDD2 41%, #FFCDD2 44%, #bbbbbb 45%, #FFCDD2 46%, #FFCDD2 49%, #bbbbbb 50%, #FFCDD2 51%, #FFCDD2 54%, #bbbbbb 55%, #FFCDD2 56%, #FFCDD2 59%, #bbbbbb 60%, #FFCDD2 61%, #FFCDD2 64%, #bbbbbb 65%, #FFCDD2 66%, #FFCDD2 69%, #bbbbbb 70%, #FFCDD2 71%, #FFCDD2 74%, #bbbbbb 75%, #FFCDD2 76%, #eeeeee 79%, #bbbbbb 80%, #FFCDD2 81%, #FFCDD2 84%, #bbbbbb 85%, #FFCDD2 86%, #FFCDD2 89%, #bbbbbb 90%, #FFCDD2 91%, #FFCDD2 94%, #bbbbbb 95%, #FFCDD2 96%, #FFCDD2 100%);
+        background-image: radial-gradient(ellipse at center, #FFCDD2 0%, #FFCDD2 4%, #bbbbbb 5%, #FFCDD2 6%, #FFCDD2 9%, #bbbbbb 10%, #FFCDD2 11%, #FFCDD2 14%, #bbbbbb 15%, #FFCDD2 16%, #FFCDD2 19%, #bbbbbb 20%, #FFCDD2 21%, #FFCDD2 24%, #bbbbbb 25%, #FFCDD2 26%, #FFCDD2 29%, #bbbbbb 30%, #FFCDD2 31%, #FFCDD2 34%, #bbbbbb 35%, #FFCDD2 36%, #FFCDD2 39%, #bbbbbb 40%, #FFCDD2 41%, #FFCDD2 44%, #bbbbbb 45%, #FFCDD2 46%, #FFCDD2 49%, #bbbbbb 50%, #FFCDD2 51%, #FFCDD2 54%, #bbbbbb 55%, #FFCDD2 56%, #FFCDD2 59%, #bbbbbb 60%, #FFCDD2 61%, #FFCDD2 64%, #bbbbbb 65%, #FFCDD2 66%, #FFCDD2 69%, #bbbbbb 70%, #FFCDD2 71%, #FFCDD2 74%, #bbbbbb 75%, #FFCDD2 76%, #eeeeee 79%, #bbbbbb 80%, #FFCDD2 81%, #FFCDD2 84%, #bbbbbb 85%, #FFCDD2 86%, #FFCDD2 89%, #bbbbbb 90%, #FFCDD2 91%, #FFCDD2 94%, #bbbbbb 95%, #FFCDD2 96%, #FFCDD2 100%);
+      }
+
+      .roll:before {
+        position: absolute;
+        content: "";
+        z-index: 1;
+        height: 100%;
+        width: 20%;
+        right: -10%;
+        border-radius: 50%;
+        -webkit-animation: anim-rollend 0.2s linear infinite;
+        animation: anim-rollend 0.2s linear infinite;
+        background-repeat: no-repeat;
+        box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5);
+      }
+
+      .roll:after {
+        position: absolute;
+        content: "";
+        z-index: 1;
+        height: 40%;
+        width: 8%;
+        top: 30%;
+        right: -4%;
+        border-radius: 50%;
+        background: #4d3319;
+        box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5);
+      }
+
+      .papers {
+        position: relative;
+        z-index: 1;
+        width: 290px;
+        height: 360px;
+        top: 80px;
+        left: 38px;
+        overflow: hidden;
+      }
+
+      .papers:after {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 25%;
+        box-shadow: inset 0 30px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .paper {
+        position: absolute;
+        background: #FFCDD2 url("https://raw.githubusercontent.com/the872/tvc2016/gh-pages/crissxcross.png");
+        width: 300px;
+        height: 240px;
+        box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5);
+        text-align: center;
+        font: bold 15px/60px 'Roboto';
+        color: #bbb;
+        text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.4), 1px 1px 1px rgba(0, 0, 0, 0.4);
+        -webkit-animation: move-paper 2s linear infinite;
+        animation: move-paper 2s linear infinite;
+      }
+
+      .toiletroll .papers .paper:nth-of-type(2) {
+        -webkit-animation-delay: -0.66667s;
+        animation-delay: -0.66667s;
+      }
+
+      .toiletroll .papers .paper:nth-of-type(3) {
+        -webkit-animation-delay: -1.33333s;
+        animation-delay: -1.33333s;
+      }
+
+      @-webkit-keyframes move-paper {
+        0% {
+          opacity: 1;
+          -webkit-transform: translateY(480px);
+          transform: translateY(480px);
+        }
+        50% {
+          -webkit-transform: translateY(80px);
+          transform: translateY(80px);
+        }
+        75% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          -webkit-transform: translateY(-240px);
+          transform: translateY(-240px);
+        }
+      }
+
+      @keyframes move-paper {
+        0% {
+          opacity: 1;
+          -webkit-transform: translateY(480px);
+          transform: translateY(480px);
+        }
+        50% {
+          -webkit-transform: translateY(80px);
+          transform: translateY(80px);
+        }
+        75% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          -webkit-transform: translateY(-240px);
+          transform: translateY(-240px);
+        }
+      }
+
+      @-webkit-keyframes move-roll {
+        0% {
+          background-position: 0px 0px;
+        }
+        100% {
+          background-position: 0px 240px;
+        }
+      }
+
+      @keyframes move-roll {
+        0% {
+          background-position: 0px 0px;
+        }
+        100% {
+          background-position: 0px 240px;
+        }
+      }
+
+      @-webkit-keyframes anim-rollend {
+        0% {
+          background-size: 100% 100%;
+          background-position: 0 0;
+        }
+        50% {
+          background-size: 98% 98%;
+          background-position: 1px 1px;
+        }
+      }
+
+      @keyframes anim-rollend {
+        0% {
+          background-size: 100% 100%;
+          background-position: 0 0;
+        }
+        50% {
+          background-size: 98% 98%;
+          background-position: 1px 1px;
+        }
+      }
+
+      b {
+        margin: auto;
+        font-size: 24px;
+        color: #fff;
+        display: block;
+        text-align: center;
+      }
+
+      #t0,
+      #sh {
+        background-color: #B03734;
+        border-radius: 5px;
+      }
+
+      front label,
+      input {
+        position: absolute;
+        right: 1em;
+        bottom: 1em;
+      }
+
+      back label,
+      input {
+        position: absolute;
+        right: 1em;
+        bottom: 1em;
+      }
+
+      label {
+        display: inline;
+        padding-right: 16px;
+        padding-top: 16px;
+        padding-bottom: -10px;
+      }
+
+      #sh {
+        color: white;
+        float: right;
+      }
+      #greeting-input {
+        top: 10px;
+        left: 10px;
+        height: calc(100% - 26px);
+        width: calc(100% - 26px);
+      }
+
+    </style>
+
+    <flip-card nohover flipped="{{flipped}}">
+
+      <front>
+        <div class="circle">T</div>
+        <h1>Donald Trump</h1>
+        <p>{{greeting}}</p>
+        <input type="checkbox" checked="{{flipped::change}}">
+      </front>
+
+      <back>
+        <input id="greeting-input" value="{{greeting::input}}">
+        <label for="greeting-input">Edit</label>
+        <input type="checkbox" checked="{{flipped::change}}">
+      </back>
+
+    </flip-card>
+
+    <div class="card">
+      <div class="wrapper" id="djt">
+        <div class="toiletroll">
+          <div class="roll"></div>
+          <div class="papers">
+            <div class="paper"><img src="https://raw.githubusercontent.com/the872/tvc2016/gh-pages/trumpet.png"></div>
+            <div class="paper"><img src="https://raw.githubusercontent.com/the872/tvc2016/gh-pages/trumpet.png"></div>
+            <div class="paper"><img src="https://raw.githubusercontent.com/the872/tvc2016/gh-pages/trumpet.png"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" id="sh">
+      © 2016 Toilet Paper Polls
+    </div>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'my-trump',
+
+        properties: {
+        greeting: {
+          type: String,
+          value: 'Donald John Trump is an American businessman, television personality, author, and politician. He is chairman of The Trump Organization, which is the principal holding company for his real estate ventures and other business interests.',
+          notify: true
+        }
+      },
+
+    });
+  </script>
+
+</dom-module>

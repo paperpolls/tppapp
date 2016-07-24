@@ -65,22 +65,21 @@ body {
 }
 
 paper-tabs {
-      color: #fff;
-      float: right;
-      text-align: center;
-      background-color: #fff;
-      width: 100%;
-      height: auto;
-      padding: 0px;
-      padding-top: 30px;
-      padding-bottom: 15px;
-      margin-bottom: 20px;
-      border-radius: 2px;
+  color: #fff;
+  float: right;
+  text-align: center;
+  background-color: #fff;
+  width: 100%;
+  height: auto;
+  padding: 0px;
+  padding-top: 30px;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  border-radius: 2px;
 }
 paper-tab a{
   color: white;
   text-decoration-style: none;
-
 }
 .card#dspan {
   background: #B03734;
