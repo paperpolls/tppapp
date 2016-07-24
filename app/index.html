@@ -147,15 +147,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
               <paper-material elevation="1">
 
-                <paper-tabs selected="0" autoselect autoselect-delay="1000" noink>
-                  <paper-tab disabled>Instructions</paper-tab>
-                  <paper-tab><a href$="{{baseUrl}}users/Trump">Donald Trump</a><br></paper-tab>
-                  <paper-tab><a href$="{{baseUrl}}users/Clinton">Clinton</a><br></paper-tab>
+                <h1 class="page-title" tabindex="-1">Instructions</h1>
+                <p>Whose toilet paper will we need more? Click below and vote as many times as you'd like!</p>
+
+                <paper-tabs selected="0" autoselect autoselect-delay="1000" >
+                  <paper-tab><a id="dspan" class="card" href$="{{baseUrl}}users/Trump" style="text-decoration:none; font-size:14px;"><iron-icon icon="assignment-turned-in"></iron-icon><b>Donald Trump</b></a><br></paper-tab>
+                  <paper-tab><a id="cspan" class="card" href$="{{baseUrl}}users/Clinton" style="text-decoration:none; font-size:14px;"><iron-icon icon="assignment-turned-in"></iron-icon><b>Hillary Clinton</b></a><br></paper-tab>
                 </paper-tabs>
 
-                <h1 class="page-title" tabindex="-1">Instructions</h1>
-                <p>Select your candidate's tab and click 'Vote' on their page.</p>
                 <img id="in" src="http://i.imgur.com/x9p8NAh.gif">
+
+
               </paper-material>
 
               <paper-material elevation="2">
