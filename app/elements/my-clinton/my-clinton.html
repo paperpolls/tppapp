@@ -1,0 +1,373 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="https://raw.githubusercontent.com/rupl/flip-card/master/flip-card.html">
+<link href="https://raw.githubusercontent.com/PolymerElements/paper-icon-button/master/paper-icon-button.html" rel="import">
+
+<dom-module id="my-clinton">
+
+    <template>
+        <style>
+            :host {
+                display: block;
+                padding: 10px;
+            }
+
+            .card {
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+                padding: 16px;
+                margin: 24px;
+                border-radius: 5px;
+                background-color: #fff;
+                color: #757575;
+            }
+
+            .circle {
+                display: inline-block;
+                height: 60px;
+                width: 60px;
+                border-radius: 50%;
+                background: #3C6983;
+                line-height: 60px;
+                font-size: 30px;
+                right: 16px;
+                position: absolute;
+                color: #fff;
+                text-align: center;
+
+            }
+
+            h1 {
+                font-size: 22px;
+                margin: 16px 0;
+                color: #3C6983;
+            }
+
+            flip-card {
+                width: calc(100% - 54px);
+                padding: 24px;
+                height: 200px;
+                color: #fff;
+                text-shadow: -1px -1px rgba(0, 0, 0, 0.4);
+                border-radius: 5px;
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+                padding: 16px;
+                margin: 24px;
+                border-radius: 5px;
+                text-shadow: none;
+            }
+
+            flip-card front {
+                padding: 24px;
+                background: #fff;
+                color: #000;
+                padding-top: 1em;
+                border-radius: 5px;
+            }
+
+            flip-card back {
+                padding: 24px;
+                background: #3C6983;
+                color: black;
+                padding-top: 1em;
+                border-radius: 5px;
+            }
+
+            @import url(http://fonts.googleapis.com/css?family=Roboto:400);
+
+            img {
+                position: relative;
+                -webkit-user-select: none;
+                display: block;
+                margin: auto;
+                width: inherit;
+                height: inherit;
+                opacity: .60;
+            }
+
+            .paper img {
+                height: 85%;
+                width: 85%;
+            }
+
+            .wrapper {
+                position: inherit;
+                margin: auto;
+                padding: 40px;
+                width: 340px;
+                max-width: 90%;
+                height: 420px;
+                max-height: 90%;
+            }
+
+            .toiletroll {
+                position: relative;
+                width: 300px;
+                height: 240px;
+            }
+
+            .roll {
+                background: #BBDEFB url("https://raw.githubusercontent.com/the872/tvc2016/gh-pages/crissxcross.png");
+            }
+
+            .roll {
+                position: absolute;
+                z-index: 2;
+                width: 300px;
+                height: 240px;
+                border-radius: 15% 0% 0% 15% / 50% 0% 0% 50%;
+                box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), inset 0 5px 10px rgba(0, 0, 0, 0.3);
+                /* W3C */
+                background-size: 300px 240px;
+                -webkit-animation: move-roll 1.06667s linear infinite;
+                animation: move-roll 1.06667s linear infinite;
+            }
+
+            .roll:before {
+                background: #BBDEFB;
+                background-image: -webkit-radial-gradient(center ellipse, #BBDEFB 0%, #BBDEFB 4%, #bbbbbb 5%, #BBDEFB 6%, #BBDEFB 9%, #bbbbbb 10%, #BBDEFB 11%, #BBDEFB 14%, #bbbbbb 15%, #BBDEFB 16%, #BBDEFB 19%, #bbbbbb 20%, #BBDEFB 21%, #BBDEFB 24%, #bbbbbb 25%, #BBDEFB 26%, #BBDEFB 29%, #bbbbbb 30%, #BBDEFB 31%, #BBDEFB 34%, #bbbbbb 35%, #BBDEFB 36%, #BBDEFB 39%, #bbbbbb 40%, #BBDEFB 41%, #BBDEFB 44%, #bbbbbb 45%, #BBDEFB 46%, #BBDEFB 49%, #bbbbbb 50%, #BBDEFB 51%, #BBDEFB 54%, #bbbbbb 55%, #BBDEFB 56%, #BBDEFB 59%, #bbbbbb 60%, #BBDEFB 61%, #BBDEFB 64%, #bbbbbb 65%, #BBDEFB 66%, #BBDEFB 69%, #bbbbbb 70%, #BBDEFB 71%, #BBDEFB 74%, #bbbbbb 75%, #BBDEFB 76%, #eeeeee 79%, #bbbbbb 80%, #BBDEFB 81%, #BBDEFB 84%, #bbbbbb 85%, #BBDEFB 86%, #BBDEFB 89%, #bbbbbb 90%, #BBDEFB 91%, #BBDEFB 94%, #bbbbbb 95%, #BBDEFB 96%, #BBDEFB 100%);
+                background-image: radial-gradient(ellipse at center, #BBDEFB 0%, #BBDEFB 4%, #bbbbbb 5%, #BBDEFB 6%, #BBDEFB 9%, #bbbbbb 10%, #BBDEFB 11%, #BBDEFB 14%, #bbbbbb 15%, #BBDEFB 16%, #BBDEFB 19%, #bbbbbb 20%, #BBDEFB 21%, #BBDEFB 24%, #bbbbbb 25%, #BBDEFB 26%, #BBDEFB 29%, #bbbbbb 30%, #BBDEFB 31%, #BBDEFB 34%, #bbbbbb 35%, #BBDEFB 36%, #BBDEFB 39%, #bbbbbb 40%, #BBDEFB 41%, #BBDEFB 44%, #bbbbbb 45%, #BBDEFB 46%, #BBDEFB 49%, #bbbbbb 50%, #BBDEFB 51%, #BBDEFB 54%, #bbbbbb 55%, #BBDEFB 56%, #BBDEFB 59%, #bbbbbb 60%, #BBDEFB 61%, #BBDEFB 64%, #bbbbbb 65%, #BBDEFB 66%, #BBDEFB 69%, #bbbbbb 70%, #BBDEFB 71%, #BBDEFB 74%, #bbbbbb 75%, #BBDEFB 76%, #eeeeee 79%, #bbbbbb 80%, #BBDEFB 81%, #BBDEFB 84%, #bbbbbb 85%, #BBDEFB 86%, #BBDEFB 89%, #bbbbbb 90%, #BBDEFB 91%, #BBDEFB 94%, #bbbbbb 95%, #BBDEFB 96%, #BBDEFB 100%);
+            }
+
+            .roll:before {
+                position: absolute;
+                content: "";
+                z-index: 1;
+                height: 100%;
+                width: 20%;
+                right: -10%;
+                border-radius: 50%;
+                -webkit-animation: anim-rollend 0.2s linear infinite;
+                animation: anim-rollend 0.2s linear infinite;
+                background-repeat: no-repeat;
+                box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5);
+            }
+
+            .roll:after {
+                position: absolute;
+                content: "";
+                z-index: 1;
+                height: 40%;
+                width: 8%;
+                top: 30%;
+                right: -4%;
+                border-radius: 50%;
+                background: #795548;
+                box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5);
+            }
+
+            .papers {
+                position: relative;
+                z-index: 1;
+                width: 290px;
+                height: 360px;
+                top: 80px;
+                left: 38px;
+                overflow: hidden;
+            }
+
+            .papers:after {
+                position: absolute;
+                content: "";
+                width: 100%;
+                height: 33%;
+                box-shadow: inset 0 30px 10px rgba(0, 0, 0, 0.2);
+            }
+
+            .paper {
+                position: absolute;
+                background: #BBDEFB url("https://raw.githubusercontent.com/the872/tvc2016/gh-pages/crissxcross.png");
+                width: 300px;
+                height: 240px;
+                box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5);
+                text-align: center;
+                font: bold 15px/60px 'Roboto';
+                color: #bbb;
+                text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.4), 1px 1px 1px rgba(0, 0, 0, 0.4);
+                -webkit-animation: move-paper 2s linear infinite;
+                animation: move-paper 2s linear infinite;
+            }
+
+            .toiletroll .papers .paper:nth-of-type(2) {
+                -webkit-animation-delay: -0.66667s;
+                animation-delay: -0.66667s;
+            }
+
+            .toiletroll .papers .paper:nth-of-type(3) {
+                -webkit-animation-delay: -1.33333s;
+                animation-delay: -1.33333s;
+            }
+
+            @-webkit-keyframes move-paper {
+                0% {
+                    opacity: 1;
+                    -webkit-transform: translateY(480px);
+                    transform: translateY(480px);
+                }
+                50% {
+                    -webkit-transform: translateY(80px);
+                    transform: translateY(80px);
+                }
+                75% {
+                    opacity: 1;
+                }
+                100% {
+                    opacity: 0;
+                    -webkit-transform: translateY(-240px);
+                    transform: translateY(-240px);
+                }
+            }
+
+            @keyframes move-paper {
+                0% {
+                    opacity: 1;
+                    -webkit-transform: translateY(480px);
+                    transform: translateY(480px);
+                }
+                50% {
+                    -webkit-transform: translateY(80px);
+                    transform: translateY(80px);
+                }
+                75% {
+                    opacity: 1;
+                }
+                100% {
+                    opacity: 0;
+                    -webkit-transform: translateY(-240px);
+                    transform: translateY(-240px);
+                }
+            }
+
+            @-webkit-keyframes move-roll {
+                0% {
+                    background-position: 0px 0px;
+                }
+                100% {
+                    background-position: 0px 240px;
+                }
+            }
+
+            @keyframes move-roll {
+                0% {
+                    background-position: 0px 0px;
+                }
+                100% {
+                    background-position: 0px 240px;
+                }
+            }
+
+            @-webkit-keyframes anim-rollend {
+                0% {
+                    background-size: 100% 100%;
+                    background-position: 0 0;
+                }
+                50% {
+                    background-size: 98% 98%;
+                    background-position: 1px 1px;
+                }
+            }
+
+            @keyframes anim-rollend {
+                0% {
+                    background-size: 100% 100%;
+                    background-position: 0 0;
+                }
+                50% {
+                    background-size: 98% 98%;
+                    background-position: 1px 1px;
+                }
+            }
+
+            b {
+                margin: auto;
+                font-size: 24px;
+                color: #fff;
+                display: block;
+                text-align: center;
+            }
+            #t0, #sh {
+                background-color: #3C6983;
+                border-radius: 5px;
+            }
+
+            front label,
+            input {
+                position: absolute;
+                right: 1em;
+                bottom: 1em;
+            }
+
+            back label,
+            input {
+                position: absolute;
+                right: 1em;
+                bottom: 1em;
+            }
+
+            label {
+                display: inline;
+                padding-right: 16px;
+                padding-top: 16px;
+                padding-bottom: -10px;
+            }
+            #sh{
+                color:white;
+                float:right;
+            }
+        </style>
+
+        <div class="card" id="t0">
+            <div title><b>🇺🇸 Presidential Primary 2016 🇺🇸</b></div>
+        </div>
+
+
+        <flip-card nohover flipped="{{flipped}}">
+
+            <front>
+                <div class="circle">C</div>
+                <h1>Hillary Clinton</h1>
+                <p>Hillary Diane Rodham Clinton is an American politician and the presumptive nominee of the Democratic Party for President of the United States in the 2016 election.</p>
+                <input type="checkbox" checked="{{flipped::change}}">
+            </front>
+
+            <back>
+                <input type="checkbox" checked="{{flipped::change}}">
+            </back>
+        </flip-card>
+
+        <div class="card">
+            <div class="wrapper" id="hrc">
+                <div class="toiletroll">
+                    <div class="roll"></div>
+                    <div class="papers">
+                        <div class="paper"><img src="https://raw.githubusercontent.com/the872/tvc2016/gh-pages/hilarious.png"></div>
+                        <div class="paper"><img src="https://raw.githubusercontent.com/the872/tvc2016/gh-pages/hilarious.png"></div>
+                        <div class="paper"><img src="https://raw.githubusercontent.com/the872/tvc2016/gh-pages/hilarious.png"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" id="sh">
+            © 2016 Toilet Paper Polls
+        </div>
+
+    </template>
+
+    <script>
+        Polymer({
+
+            is: 'my-clinton'
+
+        });
+    </script>
+
+</dom-module>

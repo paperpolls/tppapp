@@ -24,14 +24,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       .card {
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-        padding: 24px;
-        padding-bottom: 34px;
-        margin: 24px;
-        border-radius: 5px;
+        padding: 16px;
+        padding-bottom: 24px;
+        margin: 16px;
+        border-radius: 2px;
         background-color: #fff;
         color: #757575;
         padding-left: 0px;
+
       }
+
 
       .circle {
         display: inline-block;
@@ -56,8 +58,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       flip-card {
         width: calc(100% - 54px);
         padding: 24px;
-        height: 200px;
-        color: #fff;
+        min-height: 300px;
+        display:block;
+        overflow:hidden;
+        background: #fff;
         text-shadow: -1px -1px rgba(0, 0, 0, 0.4);
         border-radius: 5px;
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
@@ -65,6 +69,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         margin: 24px;
         border-radius: 5px;
         text-shadow: none;
+
       }
 
       flip-card front {
@@ -130,7 +135,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         background: #FFCDD2 url("https://raw.githubusercontent.com/the872/tvc2016/gh-pages/crissxcross.png");
         background-size: cover;
         position: absolute;
-        z-index: 2;
+        z-index: 1;
         width: 300px;
         height: 240px;
         border-radius: 15% 0% 0% 15% / 50% 0% 0% 50%;
@@ -150,7 +155,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       .roll:before {
         position: absolute;
         content: "";
-        z-index: 1;
+        z-index: 0;
         height: 100%;
         width: 20%;
         right: -10%;
@@ -164,7 +169,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       .roll:after {
         position: absolute;
         content: "";
-        z-index: 1;
+        z-index: 0;
         height: 40%;
         width: 8%;
         top: 30%;
@@ -176,7 +181,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       .papers {
         position: relative;
-        z-index: 1;
+        z-index: 0;
         width: 290px;
         height: 360px;
         top: 80px;
@@ -334,13 +339,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       #sh {
         color: white;
         float: right;
+        padding:10px;
       }
-      #greeting-input {
-        top: 10px;
-        left: 10px;
-        height: calc(100% - 26px);
-        width: calc(100% - 26px);
+      input {
+
       }
+
 
     </style>
 
@@ -355,25 +359,35 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       <back>
         <input id="greeting-input" value="{{greeting::input}}">
-        <label for="greeting-input">Edit</label>
+        <label for="greeting-input"></label>
         <input type="checkbox" checked="{{flipped::change}}">
       </back>
 
     </flip-card>
+    <flip-card nohover flipped="{{flipped}}" id="tru">
 
-    <div class="card">
-      <div class="wrapper" id="djt">
-        <div class="toiletroll">
-          <div class="roll"></div>
-          <div class="papers">
-            <div class="paper"><img src="https://raw.githubusercontent.com/the872/tvc2016/gh-pages/trumpet.png"></div>
-            <div class="paper"><img src="https://raw.githubusercontent.com/the872/tvc2016/gh-pages/trumpet.png"></div>
-            <div class="paper"><img src="https://raw.githubusercontent.com/the872/tvc2016/gh-pages/trumpet.png"></div>
+      <front>
+        <div class="wrapper" id="djt">
+          <div class="toiletroll">
+            <div class="roll"></div>
+            <div class="papers">
+              <div class="paper"><img src="https://raw.githubusercontent.com/the872/tvc2016/gh-pages/trumpet.png"></div>
+              <div class="paper"><img src="https://raw.githubusercontent.com/the872/tvc2016/gh-pages/trumpet.png"></div>
+              <div class="paper"><img src="https://raw.githubusercontent.com/the872/tvc2016/gh-pages/trumpet.png"></div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      </front>
 
+
+    <back>
+
+    </back>
+
+
+
+    </flip-card>
+    <flip-card nohover flipped="{{flipped}}">
     <div class="card" id="sh">
       © 2016 Toilet Paper Polls
     </div>
