@@ -58,7 +58,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <!-- For shared styles, shared-styles.html import in elements.html -->
   <style is="custom-style" include="shared-styles"></style>
 
-
 </head>
 
 <body unresolved>
@@ -137,7 +136,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
               </paper-material>
               <paper-material elevation="2">
-                      <a href="mailto:support@toiletpaperpolls.xyz?subject=hello" style="text-decoration:none;color:black;font-size:16px;"><b>©2016 Toilet Paper Polls</b></a>
+                <a href="mailto:support@toiletpaperpolls.xyz?subject=hello" style="text-decoration:none;color:black;font-size:16px;"><b>©2016 Toilet Paper Polls</b></a>
               </paper-material>
 
 
@@ -150,9 +149,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <h1 class="page-title" tabindex="-1">Instructions</h1>
                 <p>Whose toilet paper will we need more? Click below and vote as many times as you'd like!</p>
 
-                <paper-tabs selected="0" autoselect autoselect-delay="1000" >
-                  <paper-tab role="button" tabindex="0" onclick="app.$.paper-title.hide()"><a id="dspan" class="card"  style="text-decoration:none; line-height:40px; font-size:16px;"><b>Donald Trump</b></a><br></paper-tab>
-                  <paper-tab><a id="cspan" class="card" style="text-decoration:none; line-height:40px; font-size:16px;"><b>Hillary Clinton</b></a><br></paper-tab>
+                <paper-tabs selected="0" autoselect autoselect-delay="1000">
+                  <paper-tab><a id="dspan" class="card" style="text-decoration:none; line-height:40px; font-size:16px;" onclick="submitT()"><b>Donald Trump</b></a>
+                    <br>
+                  </paper-tab>
+                  <paper-tab><a id="cspan" class="card" style="text-decoration:none; line-height:40px; font-size:16px;" onclick="submitC()"><b>Hillary Clinton</b></a>
+                    <br>
+                  </paper-tab>
                 </paper-tabs>
 
 
@@ -171,7 +174,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               </paper-material>
 
               <paper-material elevation="2">
-                    <a href="mailto:support@toiletpaperpolls.xyz?subject=hello" style="text-decoration:none;color:black;font-size:16px;"><b>©2016 Toilet Paper Polls</b></a>
+                <a href="mailto:support@toiletpaperpolls.xyz?subject=hello" style="text-decoration:none;color:black;font-size:16px;"><b>©2016 Toilet Paper Polls</b></a>
               </paper-material>
             </section>
 
@@ -193,14 +196,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </section>
           </iron-pages>
           <paper-material elevation="2" animated="true" id="end">
-            <img id="taf" src="http://fntlnz.github.io/php-and-solr/slides/img/thats-all-folks.png"; />
-          </paper-material >
+            <img id="taf" src="http://fntlnz.github.io/php-and-solr/slides/img/thats-all-folks.png" ; />
+          </paper-material>
         </div>
       </paper-scroll-header-panel>
     </paper-drawer-panel>
 
     <paper-toast id="toast">
-      <span class="toast-hide-button" role="button" tabindex="0" onclick="app.$.toast.hide()">Ok</span>
+      <span class="toast-hide-button" role="button" tabindex="0">Ok</span>
     </paper-toast>
 
     <!-- Uncomment next block to enable Service Worker support (1/2) -->
@@ -223,6 +226,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 
   </template>
+  <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyA4T-q4jZWMvr_beQ1qZaGrQaO_M1h1_NQ",
+      authDomain: "tppapp-4f6fc.firebaseapp.com",
+      databaseURL: "https://tppapp-4f6fc.firebaseio.com",
+      storageBucket: "tppapp-4f6fc.appspot.com",
+    };
+    firebase.initializeApp(config);
+  </script>
 
   <!-- build:js scripts/app.js -->
   <script src="scripts/app.js"></script>

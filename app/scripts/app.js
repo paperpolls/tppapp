@@ -79,3 +79,28 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   };
 
 })(document);
+
+function submitC(){
+
+  var base = 'https://tppapp-4f6fc.firebaseio.com/'; //base firebase link
+  var firebase = new Firebase(base);
+  var cref = firebase.child("clinton");
+
+  cref.push().set({
+            vote: 1,
+            timestamp: Firebase.ServerValue.TIMESTAMP
+          });
+};
+
+function submitT(){
+
+  var base = 'https://tppapp-4f6fc.firebaseio.com/'; //base firebase link
+  var firebase = new Firebase(base);
+  var tref = firebase.child("trump");
+
+  tref.push().set({
+            vote: 1,
+            timestamp: Firebase.ServerValue.TIMESTAMP
+          });
+
+};
