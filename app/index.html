@@ -151,9 +151,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <p>Whose toilet paper will we need more? Click below and vote as many times as you'd like!</p>
 
                 <paper-tabs selected="0" autoselect autoselect-delay="1000" >
-                  <paper-tab><a id="dspan" class="card" href$="{{baseUrl}}users/my-trump" style="text-decoration:none; line-height:40px; font-size:16px;"><b>Donald Trump</b></a><br></paper-tab>
-                  <paper-tab><a id="cspan" class="card" href$="{{baseUrl}}users/my-clinton" style="text-decoration:none; line-height:40px; font-size:16px;"><b>Hillary Clinton</b></a><br></paper-tab>
+                  <paper-tab role="button" tabindex="0" onclick="app.$.paper-title.hide()"><a id="dspan" class="card"  style="text-decoration:none; line-height:40px; font-size:16px;"><b>Donald Trump</b></a><br></paper-tab>
+                  <paper-tab><a id="cspan" class="card" style="text-decoration:none; line-height:40px; font-size:16px;"><b>Hillary Clinton</b></a><br></paper-tab>
                 </paper-tabs>
+
+
 
                 <img id="in" src="http://i.imgur.com/x9p8NAh.gif">
 
