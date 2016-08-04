@@ -20,7 +20,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   if (window.location.port === '') {  // if production
     // Uncomment app.baseURL below and
     // set app.baseURL to '/your-pathname/' if running from folder in production
-    app.baseUrl = '/tppapp/';
+    //app.baseUrl = '/tppapp/';
   }
 
   app.displayInstalledToast = function() {
@@ -87,7 +87,6 @@ function submitC(){
   var cref = firebase.child("clinton");
 
   cref.push().set({
-            vote: 1,
             timestamp: Firebase.ServerValue.TIMESTAMP
           });
 };
@@ -99,7 +98,6 @@ function submitT(){
   var tref = firebase.child("trump");
 
   tref.push().set({
-            vote: 1,
             timestamp: Firebase.ServerValue.TIMESTAMP
           });
 
